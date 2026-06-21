@@ -565,7 +565,7 @@ function submitErrorReport() {
     btn.innerHTML = `<span class="btn-spinner"></span> Sending...`;
     btn.classList.add('btn-loading');
 
-    const email = 'info@noloitaly.it';
+    const email = 'info@noloitaly.com';
     const subject = encodeURIComponent(`Error report: ${currentReportPlace.name}`);
     const body = encodeURIComponent(
         `Hello Riccardo,\n\n` +
@@ -679,7 +679,7 @@ function submitSuggestion(e) {
         return;
     }
 
-    const email = 'info@noloitaly.it';
+    const email = 'info@noloitaly.com';
     let subject, body;
 
     if (tipo === 'nuovo') {
@@ -762,7 +762,7 @@ function submitBugReport(e) {
         `--\nSent from No/Lo Italy App`
     );
 
-    window.open(`mailto:info@noloitaly.it?subject=${subject}&body=${body}`, '_blank');
+    window.open(`mailto:info@noloitaly.com?subject=${subject}&body=${body}`, '_blank');
 
     setTimeout(() => {
         btn.disabled = false;
