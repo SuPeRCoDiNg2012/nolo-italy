@@ -703,7 +703,7 @@ function submitSuggestion(e) {
     let web = document.getElementById('sugWeb')?.value.trim() || "";
     let ig = document.getElementById('sugIg')?.value.trim() || "";
 
-    const emailDestinatario = "supercoding2012@gmail.com";
+    const emailDestinatario = "info@noloitaly.com";
     const oggettoEmail = encodeURIComponent(`[NOLO-SUGGEST] Nuovo produttore - ${nome}`);
     
     let corpoTesto = `Ecco una nuova segnalazione di produttore No/Lo inviata dal sito:\n\n`;
