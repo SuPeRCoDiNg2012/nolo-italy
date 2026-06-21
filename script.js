@@ -653,75 +653,65 @@ function populateCorrezioneSelect() {
 }
 
 // ================================================================
-// FUNZIONE DI INVIO SUGGERIMENTO (SENZA ALERT)
+// FUNZIONE DI INVIO SUGGERIMENTO (SENZA CORREZIONE)
 // ================================================================
 function submitSuggestion(e) {
     e.preventDefault(); // Blocca il ricaricamento della pagina
 
-    const type = document.getElementById('sugTypeSelect')?.value || 'nuovo';
-    
     let nomeElement = document.getElementById('sugName');
     let indirizzoElement = document.getElementById('sugAddress');
     let categoriaElement = document.getElementById('sugCat');
-    let produttoreElement = document.getElementById('sugProduttoreSelect');
+    let provinciaElement = document.getElementById('sugProv');
 
     // Rimuove la colorazione rossa da tutti i campi prima del controllo
-    [nomeElement, indirizzoElement, categoriaElement, produttoreElement].forEach(el => {
+    [nomeElement, indirizzoElement, categoriaElement, provinciaElement].forEach(el => {
         if(el) el.style.borderColor = "";
     });
 
     let errore = false;
 
-    // Controllo campi obbligatori in base al tipo
-    if (type === 'correzione') {
-        if (!produttoreElement?.value) {
-            if(produttoreElement) produttoreElement.style.borderColor = "#dc2626"; // Rosso
-            errore = true;
-        }
-    } else {
-        if (!nomeElement?.value.trim()) {
-            if(nomeElement) nomeElement.style.borderColor = "#dc2626";
-            errore = true;
-        }
-        if (!indirizzoElement?.value.trim()) {
-            if(indirizzoElement) indirizzoElement.style.borderColor = "#dc2626";
-            errore = true;
-        }
-        if (!categoriaElement?.value) {
-            if(categoriaElement) categoriaElement.style.borderColor = "#dc2626";
-            errore = true;
-        }
+    // Controllo campi obbligatori
+    if (!nomeElement?.value.trim()) {
+        if(nomeElement) nomeElement.style.borderColor = "#dc2626";
+        errore = true;
+    }
+    if (!indirizzoElement?.value.trim()) {
+        if(indirizzoElement) indirizzoElement.style.borderColor = "#dc2626";
+        errore = true;
+    }
+    if (!categoriaElement?.value) {
+        if(categoriaElement) categoriaElement.style.borderColor = "#dc2626";
+        errore = true;
+    }
+    if (!provinciaElement?.value.trim()) {
+        if(provinciaElement) provinciaElement.style.borderColor = "#dc2626";
+        errore = true;
     }
 
-    // Se c'è un errore, ci fermiamo qui SENZA mostrare l'alert
+    // Se c'è un errore, ci fermiamo qui
     if (errore) {
+        showToast('Please fill in all required fields.', 'warning');
         return;
     }
 
-    // Se è tutto ok, procediamo a raccogliere i dati per l'email
-    let nome = type === 'correzione' ? produttoreElement.value : nomeElement.value.trim();
-    let indirizzo = type === 'correzione' ? "Segnalazione di correzione" : indirizzoElement.value.trim();
-    let categoria = type === 'correzione' ? "Modifica dati" : categoriaElement.value;
-    
-    let provincia = document.getElementById('sugProv')?.value.trim() || "";
-    let status = document.getElementById('sugStatus')?.value || "";
+    // Raccolta dati per l'email
+    let nome = nomeElement.value.trim();
+    let indirizzo = indirizzoElement.value.trim();
+    let categoria = categoriaElement.value;
+    let provincia = provinciaElement.value.trim();
+    let status = document.getElementById('sugStatus')?.value || "Attivo";
     let web = document.getElementById('sugWeb')?.value.trim() || "";
     let ig = document.getElementById('sugIg')?.value.trim() || "";
 
     const emailDestinatario = "supercoding2012@gmail.com";
-    const oggettoEmail = encodeURIComponent(`[NOLO-SUGGEST] Tipo: ${type.toUpperCase()} - ${nome}`);
+    const oggettoEmail = encodeURIComponent(`[NOLO-SUGGEST] Nuovo produttore - ${nome}`);
     
-    let corpoTesto = `Ecco una nuova segnalazione inviata dal sito NOLO Italy:\n\n`;
-    corpoTesto += `📌 Tipo Segnalazione: ${type.toUpperCase()}\n`;
-    corpoTesto += `🏷️ Nome/Produttore: ${nome}\n`;
-    
-    if (type === 'nuovo') {
-        corpoTesto += `📍 Indirizzo: ${indirizzo}\n`;
-        corpoTesto += `🗂️ Categoria: ${categoria}\n`;
-        corpoTesto += `🏙️ Provincia: ${provincia}\n`;
-        corpoTesto += `⚙️ Status: ${status}\n`;
-    }
-    
+    let corpoTesto = `Ecco una nuova segnalazione di produttore No/Lo inviata dal sito:\n\n`;
+    corpoTesto += `🏷️ Nome: ${nome}\n`;
+    corpoTesto += `📍 Indirizzo: ${indirizzo}\n`;
+    corpoTesto += `🗂️ Categoria: ${categoria}\n`;
+    corpoTesto += `🏙️ Provincia: ${provincia}\n`;
+    corpoTesto += `⚙️ Status: ${status}\n`;
     if (web) corpoTesto += `🌐 Sito Web: ${web}\n`;
     if (ig) corpoTesto += `📸 Instagram: ${ig}\n`;
 
@@ -729,6 +719,9 @@ function submitSuggestion(e) {
 
     // Apre l'app delle email
     window.location.href = `mailto:${emailDestinatario}?subject=${oggettoEmail}&body=${corpoEmail}`;
+
+    // Mostra un feedback all'utente
+    showToast('📧 Opening email app...', 'success');
 }
 
 // ================================================================

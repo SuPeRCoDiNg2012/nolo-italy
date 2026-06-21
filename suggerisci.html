@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="style.css" />
     <meta name="theme-color" content="#fff5f5">
-
-<link rel="icon" type="image/png" href="favicon.png">
-
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍹</text></svg>">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍹</text></svg>">
 </head>
 <body>
     <div class="page-container">
@@ -29,48 +27,58 @@
         <div class="page-card">
             <form onsubmit="submitSuggestion(event)">
 
-                <div class="form-group" id="correzioneField" style="display:none;">
-                    <label class="form-label" id="correctionLabel">Select the producer to correct *</label>
-                    <select class="form-input" id="sugCorrezione"><option value="">Loading producers...</option></select>
+                <!-- NOME -->
+                <div class="form-group">
+                    <label class="form-label">Brand / Company Name *</label>
+                    <input type="text" class="form-input" id="sugName" placeholder="E.g. Eko lab" required />
                 </div>
 
+                <!-- CATEGORIA -->
                 <div class="form-group">
-                    <label class="form-label" id="nameLabel">Brand / Company Name *</label>
-                    <input type="text" class="form-input" id="sugName" required id="namePlaceholder" />
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" id="typeFieldLabel">Type *</label>
-                    <input type="text" class="form-input" id="sugType" required id="typePlaceholder" />
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" id="addressLabel">Address *</label>
-                    <input type="text" class="form-input" id="sugAddress" required id="addressPlaceholder" />
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" id="provinceLabel">Province *</label>
-                    <input type="text" class="form-input" id="sugProv" required id="provincePlaceholder" />
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" id="statusLabel">Status</label>
-                    <select class="form-input" id="sugStatus">
-                        <option value="Attivo" id="statusActive">Active</option>
-                        <option value="In pausa" id="statusPaused">Paused</option>
-                        <option value="Chiuso" id="statusClosed">Closed</option>
+                    <label class="form-label">Category *</label>
+                    <select class="form-input" id="sugCat" required>
+                        <option value="">Select a category...</option>
+                        <option value="beer">🍺 Beer</option>
+                        <option value="wine">🍷 Wine</option>
+                        <option value="spirits">🥃 Spirits</option>
+                        <option value="kombucha">🍵 Kombucha</option>
+                        <option value="cider">🍎 Cider</option>
+                        <option value="other">🧪 Other</option>
                     </select>
                 </div>
 
+                <!-- INDIRIZZO -->
                 <div class="form-group">
-                    <label class="form-label" id="webLabel">Website</label>
-                    <input type="url" class="form-input" id="sugWeb" id="webPlaceholder" />
+                    <label class="form-label">Address *</label>
+                    <input type="text" class="form-input" id="sugAddress" placeholder="E.g. Via Roma 1, Milano" required />
                 </div>
 
+                <!-- PROVINCIA -->
                 <div class="form-group">
-                    <label class="form-label" id="igLabel">Instagram</label>
-                    <input type="url" class="form-input" id="sugIg" id="igPlaceholder" />
+                    <label class="form-label">Province *</label>
+                    <input type="text" class="form-input" id="sugProv" placeholder="E.g. MI" required />
+                </div>
+
+                <!-- STATUS -->
+                <div class="form-group">
+                    <label class="form-label">Status</label>
+                    <select class="form-input" id="sugStatus">
+                        <option value="Attivo">✅ Active</option>
+                        <option value="In pausa">⏸️ Paused</option>
+                        <option value="Chiuso">❌ Closed</option>
+                    </select>
+                </div>
+
+                <!-- WEBSITE -->
+                <div class="form-group">
+                    <label class="form-label">Website</label>
+                    <input type="url" class="form-input" id="sugWeb" placeholder="https://example.com" />
+                </div>
+
+                <!-- INSTAGRAM -->
+                <div class="form-group">
+                    <label class="form-label">Instagram</label>
+                    <input type="url" class="form-input" id="sugIg" placeholder="https://instagram.com/..." />
                 </div>
 
                 <button type="submit" class="submit-btn" id="submitBtn">
@@ -79,7 +87,7 @@
             </form>
         </div>
 
-        <p style="font-size:0.75rem; color:var(--text-dim); text-align:center;" id="requiredNote">Fields marked with * are required.</p>
+        <p style="font-size:0.75rem; color:var(--text-dim); text-align:center;">Fields marked with * are required.</p>
     </div>
 
     <script src="script.js"></script>
