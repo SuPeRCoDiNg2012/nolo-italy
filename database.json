@@ -1,0 +1,853 @@
+{
+  "typologies": {
+    "kombucha": {
+      "label": "Kombucha",
+      "icon": "bubble_chart"
+    },
+    "kefir": {
+      "label": "Kefir",
+      "icon": "waves"
+    },
+    "beer": {
+      "label": "Beer",
+      "icon": "sports_bar"
+    },
+    "soda": {
+      "label": "Soda",
+      "icon": "local_drink"
+    },
+    "shrub": {
+      "label": "Shrub",
+      "icon": "bakery_dining"
+    },
+    "proxy": {
+      "label": "Proxy",
+      "icon": "wine_bar"
+    },
+    "spirit": {
+      "label": "Spirit",
+      "icon": "local_bar"
+    },
+    "aperitivo": {
+      "label": "Aperitif",
+      "icon": "liquor"
+    },
+    "amaro": {
+      "label": "Amaro",
+      "icon": "science"
+    },
+    "wine_dealcoholized": {
+      "label": "Dealcoholized Wine",
+      "icon": "wine_bar"
+    },
+    "other": {
+      "label": "Other",
+      "icon": "category"
+    }
+  },
+  "officialPlaces": [
+    {
+      "name": "Bibi Kombucha",
+      "typology": "kombucha",
+      "address": "Via San Bernardino da Siena 15, Perugia 06081",
+      "province": "Perugia",
+      "lat": 43.055922486600565,
+      "lng": 12.576669570891951,
+      "status": "Attivo",
+      "web": "https://www.bibikombucha.com/",
+      "ig": "https://www.instagram.com/bibi.kombucha/"
+    },
+    {
+      "name": "Frui Kombucha",
+      "typology": "kombucha",
+      "address": "Via Augusto Romagnoli, 6, 40137 Bologna BO",
+      "province": "Bologna",
+      "lat": 44.4754876,
+      "lng": 11.3688658,
+      "status": "Attivo",
+      "web": "https://www.fruilab.com/",
+      "ig": "https://l.instagram.com/?u=http%3A%2F%2Fwww.fruilab.com%2F%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAac9bKpBEUBQKyA-4wzoANURRz0SYekiwPBQmgvoEM2ixZadA9FjbyP3xwTnhw_aem_TdUi1XOy2TsS5eE0txRyYA&e=AT2Llpo_R6mzCfErjwyxFdyiSWwEQqzw9qle5fPrdrhcgn_q7ojGgCz2wYH1QYjTEN_88TdF33nANGCm8mrnyiS8DDAzJgPLUuLQLg"
+    },
+    {
+      "name": "Kamen Kombucha",
+      "typology": "kombucha",
+      "address": "Brindisi",
+      "province": "Brindisi",
+      "lat": 40.6358599,
+      "lng": 17.6884975,
+      "status": "In pausa",
+      "web": "",
+      "ig": "https://www.instagram.com/kamen_lab/"
+    },
+    {
+      "name": "Live Barrels",
+      "typology": "kombucha",
+      "address": "Viale delle Rimembranze, 34, 29013 Carpaneto Piacentino PC",
+      "province": "Piacenza",
+      "lat": 44.9351026,
+      "lng": 9.7998588,
+      "status": "Chiuso",
+      "web": "https://livebarrels.myshopify.com/",
+      "ig": "https://www.instagram.com/livebarrels/"
+    },
+    {
+      "name": "La Fermenteria",
+      "typology": "kombucha",
+      "address": "Cesena",
+      "province": "Forlì Cesena",
+      "lat": 44.136352,
+      "lng": 12.2422442,
+      "status": "Attivo",
+      "web": "",
+      "ig": "https://www.instagram.com/_lafermenteria_/"
+    },
+    {
+      "name": "Cultura Viva Kombucha",
+      "typology": "kombucha",
+      "address": "Viale Jacopone da Todi, 26,\n06050 Collazzone (PG)",
+      "province": "Perugia",
+      "lat": 42.9119796,
+      "lng": 12.4413789,
+      "status": "In pausa",
+      "web": "https://culturavivakombucha.com/",
+      "ig": "https://www.instagram.com/culturavivakombucha/"
+    },
+    {
+      "name": "Purakombu",
+      "typology": "kombucha",
+      "address": "Gemonio",
+      "province": "Varese",
+      "lat": 45.8792168,
+      "lng": 8.6753972,
+      "status": "Attivo",
+      "web": "http://www.purakombucha.it/",
+      "ig": "https://www.instagram.com/purakombu/"
+    },
+    {
+      "name": "Flow Kombucha Italia",
+      "typology": "kombucha",
+      "address": "Via dei conti 3, Firenze",
+      "province": "Firenze",
+      "lat": 43.7738977,
+      "lng": 11.2530971,
+      "status": "Chiuso",
+      "web": "",
+      "ig": "https://www.instagram.com/flowkombuchaitalia/"
+    },
+    {
+      "name": "Fattoria Bucolica",
+      "typology": "kombucha",
+      "address": "via Castracane 110\n50055 Lastra a Signa (FI)",
+      "province": "Firenze",
+      "lat": 43.7680061,
+      "lng": 11.106494,
+      "status": "Attivo",
+      "web": "https://www.bucolica.farm/",
+      "ig": "https://www.instagram.com/fattoria_bucolica/"
+    },
+    {
+      "name": "Mia Kombucha",
+      "typology": "kombucha",
+      "address": "Via Campagna, 24, 21056 Induno Olona VA",
+      "province": "Varese",
+      "lat": 45.8405263,
+      "lng": 8.8399955,
+      "status": "Attivo",
+      "web": "https://miakombucha.com/",
+      "ig": "https://www.instagram.com/mia_kombucha/"
+    },
+    {
+      "name": "Selvatica Lab",
+      "typology": "kombucha",
+      "address": "Via Presa 20,\n95016  Mascali (CT)",
+      "province": "Catania",
+      "lat": 37.7823547,
+      "lng": 15.1692079,
+      "status": "Attivo",
+      "web": "https://selvaticalab.it/",
+      "ig": "https://www.instagram.com/selvaticalab/"
+    },
+    {
+      "name": "Conza Food Lab",
+      "typology": "kombucha",
+      "address": "Contrada rassuara, 94010 Assoro EN",
+      "province": "Enna",
+      "lat": 37.63134821392257,
+      "lng": 14.41456084278613,
+      "status": "Attivo",
+      "web": "https://www.conzafoodlab.it/",
+      "ig": "https://www.instagram.com/conzagram/"
+    },
+    {
+      "name": "Old Kombucha",
+      "typology": "kombucha",
+      "address": "Via Alessandro Volta, 10, 22060 Arosio CO",
+      "province": "Como",
+      "lat": 45.7198924,
+      "lng": 9.2041814,
+      "status": "Attivo",
+      "web": "https://www.oldkombucha.com/",
+      "ig": "https://www.instagram.com/oldkombucha/"
+    },
+    {
+      "name": "Pào Pào Kombucha",
+      "typology": "kombucha",
+      "address": "Via Lombardia, 3, 20821 Meda MB",
+      "province": "Monza Brianza",
+      "lat": 45.655418,
+      "lng": 9.1625536,
+      "status": "Attivo",
+      "web": "https://www.paopaokombucha.com/",
+      "ig": "https://www.instagram.com/paopaokombucha/"
+    },
+    {
+      "name": "Kombucha Chiara Torti",
+      "typology": "kombucha",
+      "address": "Frazione Castelrotto n. 9 Montecalvo Versiggia\n\n27047",
+      "province": "Pavia",
+      "lat": 44.9826797,
+      "lng": 9.275998,
+      "status": "Attivo",
+      "web": "https://www.pietrotorti.it/kombucha",
+      "ig": "https://www.instagram.com/kombuchachiaratorti/"
+    },
+    {
+      "name": "Kombucha Queen",
+      "typology": "kombucha",
+      "address": "Via Santa Caterina 45, Arco",
+      "province": "Trento",
+      "lat": 45.9129268,
+      "lng": 10.8761075,
+      "status": "Attivo",
+      "web": "https://drinkkq.com/",
+      "ig": "https://www.instagram.com/drink_kombuchaqueen/"
+    },
+    {
+      "name": "Ladybug Kombucha",
+      "typology": "kombucha",
+      "address": "Perugia",
+      "province": "Perugia",
+      "lat": 43.1070321,
+      "lng": 12.4029962,
+      "status": "Attivo",
+      "web": "",
+      "ig": "https://www.instagram.com/ladybug_kombucha/"
+    },
+    {
+      "name": "Prima Radice",
+      "typology": "kombucha",
+      "address": "Via Favola, 18, 33070 Polcenigo PN",
+      "province": "Pordenone",
+      "lat": 46.0241366,
+      "lng": 12.5164448,
+      "status": "Attivo",
+      "web": "https://primaradice.com/",
+      "ig": "https://www.instagram.com/primaradice/"
+    },
+    {
+      "name": "Selma Agricola Sermondi",
+      "typology": "kombucha",
+      "address": "Via Sermondi, 10, 36020 Castegnero VI",
+      "province": "Vicenza",
+      "lat": 45.4474311,
+      "lng": 11.5638885,
+      "status": "Attivo",
+      "web": "",
+      "ig": "https://www.instagram.com/selma.agricola.sermondi/"
+    },
+    {
+      "name": "Funky Fermenteria",
+      "typology": "kombucha",
+      "address": "Via Genio Zappatori, 26, 31040 Nervesa della Battaglia TV",
+      "province": "Treviso",
+      "lat": 45.8049475,
+      "lng": 12.1880736,
+      "status": "Attivo",
+      "web": "https://www.funkyfermenteria.com/",
+      "ig": "https://www.instagram.com/funkyfermenteria/"
+    },
+    {
+      "name": "Vivi Ferments",
+      "typology": "kefir",
+      "address": "Via San Giuseppe, 34, 43039 Salsomaggiore Terme PR",
+      "province": "Parma",
+      "lat": 44.8390627,
+      "lng": 10.0163332,
+      "status": "Attivo",
+      "web": "https://www.viviferments.it/",
+      "ig": "https://www.instagram.com/viviferments/"
+    },
+    {
+      "name": "Laverve Fermenteria",
+      "typology": "kombucha",
+      "address": "Via di Portonaccio, 21, 00159 Roma RM",
+      "province": "Roma",
+      "lat": 41.9058911,
+      "lng": 12.5353758,
+      "status": "Attivo",
+      "web": "https://lavervefermenteria.it/",
+      "ig": "https://www.instagram.com/laverve_fermenteria/"
+    },
+    {
+      "name": "Acido Laboratorio",
+      "typology": "kombucha",
+      "address": "Via Luigi Tarino, 16, 10124 Torino TO",
+      "province": "Torino",
+      "lat": 45.0718484,
+      "lng": 7.6967226,
+      "status": "Attivo",
+      "web": "",
+      "ig": "https://www.instagram.com/acido_lab/"
+    },
+    {
+      "name": "BBT Drinks",
+      "typology": "kombucha",
+      "address": "Verona",
+      "province": "Verona",
+      "lat": 45.4424977,
+      "lng": 10.9857377,
+      "status": "Chiuso",
+      "web": "https://www.bbtdrinks.com/",
+      "ig": "https://www.instagram.com/bbt_drinks/"
+    },
+    {
+      "name": "Legend Kombucha",
+      "typology": "kombucha",
+      "address": "Via della Segheria, 1/H, 37141 Verona VR",
+      "province": "Verona",
+      "lat": 45.4588573,
+      "lng": 11.0686359,
+      "status": "Attivo",
+      "web": "https://www.legendkombucha.com/",
+      "ig": "https://www.instagram.com/legendkombucha/"
+    },
+    {
+      "name": "Boaz Beverage",
+      "typology": "kombucha",
+      "address": "Via Vicenza, 52 \nCamisano Vicentino\n36043 - (VI)",
+      "province": "Vicenza",
+      "lat": 45.5194622,
+      "lng": 11.6948628,
+      "status": "Attivo",
+      "web": "https://www.boazbeverage.com/",
+      "ig": "https://www.instagram.com/boazbeverage/"
+    },
+    {
+      "name": "Tibi Lab",
+      "typology": "kefir",
+      "address": "Via Marconi, 3/1, 10060 Roletto TO",
+      "province": "Torino",
+      "lat": 44.9115197,
+      "lng": 7.3626246,
+      "status": "Attivo",
+      "web": "https://tibilab.it/?srsltid=AfmBOor6K6L59HjQvvhxNmI_bdZ8N-mkwcCs39TXj50rY6l9guBD2JBE",
+      "ig": "https://www.instagram.com/tibi_lab/?hl=it"
+    },
+    {
+      "name": "Orlo",
+      "typology": "proxy",
+      "address": "Via dietro Cero, 7, 35030 Baone PD",
+      "province": "Padova",
+      "lat": 45.2608921,
+      "lng": 11.6770441,
+      "status": "Attivo",
+      "web": "https://orlodrinks.my.canva.site/",
+      "ig": "https://www.instagram.com/orlo.drinks?igsh=MXgwZHFmeXV6cW9nZA=="
+    },
+    {
+      "name": "Freedl",
+      "typology": "beer",
+      "address": "Via S. Martino, 4, 39011 Lana BZ",
+      "province": "Bolzano",
+      "lat": 46.6154242,
+      "lng": 11.1510473,
+      "status": "Attivo",
+      "web": "https://freedl.it/collections",
+      "ig": "https://www.instagram.com/freedl.it/"
+    },
+    {
+      "name": "Skossa",
+      "typology": "beer",
+      "address": "V.le Zara, 58, 20124 Milano MI",
+      "province": "Milano",
+      "lat": 45.4937282,
+      "lng": 9.1941819,
+      "status": "Attivo",
+      "web": "https://www.skossa.beer/",
+      "ig": "https://www.instagram.com/skossabeer/"
+    },
+    {
+      "name": "Kombru",
+      "typology": "kombucha",
+      "address": "Via XXIV Maggio, 4 – 10041 Carignano (TO)",
+      "province": "Torino",
+      "lat": 44.9041195,
+      "lng": 7.6723854,
+      "status": "Attivo",
+      "web": "https://kombru.it/",
+      "ig": "https://www.instagram.com/kombru_/"
+    },
+    {
+      "name": "Batteria",
+      "typology": "kombucha",
+      "address": "Firenze",
+      "province": "Firenze",
+      "lat": 43.7697955,
+      "lng": 11.2556404,
+      "status": "Attivo",
+      "web": "https://shop.batteria.net/",
+      "ig": "https://www.instagram.com/batteria_/"
+    },
+    {
+      "name": "Kefirata Lab",
+      "typology": "kefir",
+      "address": "Como",
+      "province": "Como",
+      "lat": 45.9394759,
+      "lng": 9.1494101,
+      "status": "In pausa",
+      "web": "",
+      "ig": "https://www.instagram.com/kefirata/"
+    },
+    {
+      "name": "Komb(w)ine",
+      "typology": "kombucha",
+      "address": "Via della Segheria, 1/H, 37141 Verona VR",
+      "province": "Verona",
+      "lat": 45.4588573,
+      "lng": 11.0686359,
+      "status": "Attivo",
+      "web": "https://www.kombwine.it/",
+      "ig": "https://www.instagram.com/komb.wine/"
+    },
+    {
+      "name": "Mediterranea Sparkling",
+      "typology": "kombucha",
+      "address": "Bertinoro",
+      "province": "Forlì Cesena",
+      "lat": 44.148665,
+      "lng": 12.134235,
+      "status": "Attivo",
+      "web": "",
+      "ig": "https://www.instagram.com/_mediterranea_sparkling/"
+    },
+    {
+      "name": "Maybe Kombucha",
+      "typology": "kombucha",
+      "address": "Faenza",
+      "province": "Forlì Cesena",
+      "lat": 44.2855555,
+      "lng": 11.8832055,
+      "status": "Attivo",
+      "web": "",
+      "ig": "https://www.instagram.com/maybe_kombucha/"
+    },
+    {
+      "name": "Kodai Kombucha",
+      "typology": "kombucha",
+      "address": "Via Alessandro Volta, 14, 41012 Carpi MO",
+      "province": "Modena",
+      "lat": 44.7874548,
+      "lng": 10.8820892,
+      "status": "Attivo",
+      "web": "https://kodaifermentati.it/",
+      "ig": "https://www.instagram.com/kodai_fermentati/"
+    },
+    {
+      "name": "Sylvulae",
+      "typology": "kombucha",
+      "address": "Via Micheli, 15b, 43043 Borgo Val di Taro PR",
+      "province": "Parma",
+      "lat": 44.4870504,
+      "lng": 9.7691848,
+      "status": "Attivo",
+      "web": "https://sylvulae.com/",
+      "ig": ""
+    },
+    {
+      "name": "Wild Ferment",
+      "typology": "kefir",
+      "address": "Piazza Francesco d'Ovidio, 80134 Napoli",
+      "province": "Napoli",
+      "lat": 40.8477894,
+      "lng": 14.2486062,
+      "status": "Attivo",
+      "web": "https://www.facebook.com/Candi.WildFerment/?ref=_xav_ig_profile_page_web#",
+      "ig": "https://www.instagram.com/wild_ferm/"
+    },
+    {
+      "name": "AKA Teas",
+      "typology": "kombucha",
+      "address": "Largo dei Pecile 2133100 Udine",
+      "province": "Udine",
+      "lat": 46.0643516,
+      "lng": 13.2320416,
+      "status": "Attivo",
+      "web": "https://www.akateas.it/",
+      "ig": "https://www.instagram.com/aka.teas"
+    },
+    {
+      "name": "Comunità Frizzante",
+      "typology": "soda",
+      "address": "Rovereto",
+      "province": "Trento",
+      "lat": 45.886548,
+      "lng": 11.0452369,
+      "status": "Attivo",
+      "web": "https://www.comunitafrizzante.it/",
+      "ig": "https://www.instagram.com/comunitafrizzante/"
+    },
+    {
+      "name": "Guà Forest Farm",
+      "typology": "soda",
+      "address": "Via Lungo Lago, 3/A, 38073 Cavedine TN",
+      "province": "Trento",
+      "lat": 46.0190036,
+      "lng": 10.9586115,
+      "status": "Attivo",
+      "web": "https://www.gua.farm/",
+      "ig": "https://www.instagram.com/guardagua/"
+    },
+    {
+      "name": "Fermento Tutto",
+      "typology": "kombucha",
+      "address": "Via Pucci, 9, 00013 Mentana RM",
+      "province": "Roma",
+      "lat": 42.0387884,
+      "lng": 12.6340993,
+      "status": "Attivo",
+      "web": "http://www.fermentotutto.it/",
+      "ig": "https://www.instagram.com/fermentotutto?igsh=MzVwMmpka29kZDhm"
+    },
+    {
+      "name": "Fervere",
+      "typology": "kombucha",
+      "address": "Via Donatori di Organi 26, Bitritto (BA)",
+      "province": "Bari",
+      "lat": 41.0465502,
+      "lng": 16.8214429,
+      "status": "Attivo",
+      "web": "https://www.fervere.it/",
+      "ig": "https://www.instagram.com/ferverelab/"
+    },
+    {
+      "name": "L'Orto Felice",
+      "typology": "kombucha",
+      "address": "Via dei Carlini 31, Udine",
+      "province": "Udine",
+      "lat": 46.0491585,
+      "lng": 13.2541085,
+      "status": "Attivo",
+      "web": "https://linktr.ee/lortofelice?fbclid=PAQ0xDSwL_T9xleHRuA2FlbQIxMQABp9J7UE9-D8rDUfaq0noSrCcFx1_AjVDYfmrPNMBfs1yBQ3I-C9sha3ZsPXnC_aem_VF81gCA3AKHjt9WoJtql9g",
+      "ig": "https://www.instagram.com/lortofelice?igsh=MWhpdnJpanh4bWs3dw=="
+    },
+    {
+      "name": "Azienda Agricola Il Rivo",
+      "typology": "kombucha",
+      "address": "Teano",
+      "province": "Caserta",
+      "lat": 41.2510841,
+      "lng": 14.0671513,
+      "status": "Attivo",
+      "web": "",
+      "ig": "https://www.instagram.com/aziendaagricolailrivo?igsh=aTB4YXNyY2RvbWww"
+    },
+    {
+      "name": "Birrificio Agricolo Busa Dei Briganti",
+      "typology": "beer",
+      "address": "Via Forestana, 9, 35030 Cinto Euganeo",
+      "province": "Padova",
+      "lat": 45.3041542,
+      "lng": 11.6789187,
+      "status": "Attivo",
+      "web": "https://busadeibriganti.com",
+      "ig": "https://www.instagram.com/busadeibriganti?igsh=MTR1dGVzcmttOHc4aA=="
+    },
+    {
+      "name": "Creo Vivo",
+      "typology": "kombucha",
+      "address": "Pozzallo",
+      "province": "Ragusa",
+      "lat": 36.7265294,
+      "lng": 14.8465811,
+      "status": "Attivo",
+      "web": "",
+      "ig": "https://www.instagram.com/creovivo_naturainfermento/"
+    },
+    {
+      "name": "La BeeO Baita",
+      "typology": "kombucha",
+      "address": "Frazione Carbonile, 57, 50062 Dicomano FI",
+      "province": "Firenze",
+      "lat": 43.89961728267462,
+      "lng": 11.558089195953224,
+      "status": "Attivo",
+      "web": "https://sites.google.com/view/labeeobaita",
+      "ig": "https://www.instagram.com/la_beeo_baita/"
+    },
+    {
+      "name": "Loovik Kombucha",
+      "typology": "kombucha",
+      "address": "Via Tentorio 2A, Via del Lavoro, 16, 22100 Como CO",
+      "province": "Como",
+      "lat": 45.78170408974518,
+      "lng": 9.07933606882466,
+      "status": "Attivo",
+      "web": "https://www.loovik.com/",
+      "ig": "https://www.instagram.com/loovik.beverages/"
+    },
+    {
+      "name": "Intro Kombucha",
+      "typology": "kombucha",
+      "address": "Località Aurisina Cave, 44/E, 34011 Duino Aurisina TS",
+      "province": "Trieste",
+      "lat": 45.75523154075226,
+      "lng": 13.652709275930286,
+      "status": "Attivo",
+      "web": "https://introfoods.com/en",
+      "ig": "https://www.instagram.com/intro.foods/"
+    },
+    {
+      "name": "Melly's Kombucha",
+      "typology": "kombucha",
+      "address": "Str. Castelvecchio, 37, 10024 Moncalieri TO",
+      "province": "Torino",
+      "lat": 45.01183332592801,
+      "lng": 7.713128780950084,
+      "status": "Attivo",
+      "web": "https://mellyskombucha.it/",
+      "ig": "https://www.instagram.com/mellys.kombucha/"
+    },
+    {
+      "name": "Fauno Azienda Agricola",
+      "typology": "kombucha",
+      "address": "Via passaturo di pota 4/6, 03020, Pico FR",
+      "province": "Frosinone",
+      "lat": 41.44527710198804,
+      "lng": 13.567498320413117,
+      "status": "Attivo",
+      "web": "",
+      "ig": "https://www.instagram.com/faunoaziendaagricola/"
+    },
+    {
+      "name": "Orti Geometrici",
+      "typology": "kombucha",
+      "address": "Str. Vicinale Francescone, 65125 Pescara PE",
+      "province": "Pescara",
+      "lat": 42.47650504807095,
+      "lng": 14.19055199689447,
+      "status": "Attivo",
+      "web": "https://ortigeometrici.it/",
+      "ig": "https://www.instagram.com/orti_geometrici/"
+    },
+    {
+      "name": "Casa di Tano",
+      "typology": "kombucha",
+      "address": "Contrada Tezza 1 37030, Badia Calavena (VR)",
+      "province": "Verona",
+      "lat": 45.588101857740234,
+      "lng": 11.143446389111913,
+      "status": "Attivo",
+      "web": "http://www.casaditano.it/",
+      "ig": "https://www.instagram.com/casaditano/"
+    },
+    {
+      "name": "Feral",
+      "typology": "proxy",
+      "address": "Località Maso Parti, 2A, 38017 Mezzolombardo TN",
+      "province": "Trento",
+      "lat": 46.18987334981105,
+      "lng": 11.10640287450809,
+      "status": "Attivo",
+      "web": "https://feral-drinks.com/",
+      "ig": "https://www.instagram.com/feral_drinks/"
+    },
+    {
+      "name": "Acetyco",
+      "typology": "shrub",
+      "address": "Str. Pennella 1 42017 Novellara RE",
+      "province": "Reggio Emilia",
+      "lat": 44.836897630334754,
+      "lng": 10.694442903587037,
+      "status": "Attivo",
+      "web": "https://acetyca.com/shop/",
+      "ig": "https://www.instagram.com/acetyco_official/"
+    },
+    {
+      "name": "Otro",
+      "typology": "shrub",
+      "address": "IV, Piazza Risorgimento, 1, 20841 Carate Brianza MB",
+      "province": "Monza Brianza",
+      "lat": 45.67347376912257,
+      "lng": 9.232684787045436,
+      "status": "Attivo",
+      "web": "https://alternativeotro.it/",
+      "ig": "https://www.instagram.com/alternativeotro/"
+    },
+    {
+      "name": "ACÀ",
+      "typology": "kombucha",
+      "address": "Frazione Tassarole 10 27040 Montù Beccaria PV",
+      "province": "Pavia",
+      "lat": 45.03656781527077,
+      "lng": 9.307504471183771,
+      "status": "Attivo",
+      "web": "https://www.acaoltrepo.com/?fbclid=PAQ0xDSwL-jMBleHRuA2FlbQIxMQABp5MiF_aCyC5aSjwPyp_G7iD9w6qj_c-BmNLL7cdG1rNhhCB1FStmVe0dO4Th_aem_KYo7q-KJ_4a_ym698mPnKA",
+      "ig": "https://www.instagram.com/aca_oltrepo?igsh=bG1lZTFoaDhkeXNj"
+    },
+    {
+      "name": "Eko lab",
+      "typology": "kombucha",
+      "address": "Via T.Valenti, 16 - 46046 Medole (Mn)",
+      "province": "Mantova",
+      "lat": 45.32504839229394,
+      "lng": 10.50572911831932,
+      "status": "Attivo",
+      "web": "https://ekolabitalia.com/",
+      "ig": "https://www.instagram.com/ekolab_gastronomia?igsh=ZGZzMGtsdjV3cGdp"
+    },
+    {
+      "name": "Sabatini GINO°",
+      "typology": "spirit",
+      "address": "Loc. Teccognano, C.S. 565, 52044 Cortona AR",
+      "province": "Arezzo",
+      "lat": 43.27832900913462,
+      "lng": 12.009918261657134,
+      "status": "Attivo",
+      "web": "https://www.sabatinigin.com/",
+      "ig": "https://www.instagram.com/sabatinigin/"
+    },
+    {
+      "name": "Amàrico",
+      "typology": "aperitivo",
+      "address": "Via Montello 2, 37124 Verona",
+      "province": "Verona",
+      "lat": 45.456612769750095,
+      "lng": 10.984370244713054,
+      "status": "Attivo",
+      "web": "https://www.amaricodrinks.com/",
+      "ig": "https://www.instagram.com/amaricodrinks/"
+    },
+    {
+      "name": "MeMento",
+      "typology": "spirit",
+      "address": "Via Lodovico Muratori 30, Milano (MI)",
+      "province": "Milano",
+      "lat": 45.45168433590549,
+      "lng": 9.20799500205718,
+      "status": "Attivo",
+      "web": "https://www.mementodrink.com/",
+      "ig": "https://www.instagram.com/mementodrink/"
+    },
+    {
+      "name": "Dr Zero Zero (AmarNo & AperZero)",
+      "typology": "amaro",
+      "address": "Trieste",
+      "province": "Trieste",
+      "lat": 45.65059241708348,
+      "lng": 13.765805553113156,
+      "status": "Attivo",
+      "web": "https://drzerozero.com/",
+      "ig": "https://www.instagram.com/drzerozerodrinks/"
+    },
+    {
+      "name": "NO.AH",
+      "typology": "spirit",
+      "address": "Palazzo delle Professioni, Viale Asiago, 113, 36061 Bassano del Grappa VI",
+      "province": "Vicenza",
+      "lat": 45.77025223135554,
+      "lng": 11.708388604346034,
+      "status": "Attivo",
+      "web": "https://noahdrinks.com/",
+      "ig": "https://www.instagram.com/noahdrinks/"
+    },
+    {
+      "name": "Milano Distillery",
+      "typology": "spirit",
+      "address": "Via Mantova, 17, 20135 Milano MI",
+      "province": "Milano",
+      "lat": 45.44781162386984,
+      "lng": 9.207127185372306,
+      "status": "Attivo",
+      "web": "https://www.milanodistillery.com/",
+      "ig": "https://www.instagram.com/milano_distillery_/"
+    },
+    {
+      "name": "Vol0 (Volzero)",
+      "typology": "spirit",
+      "address": "Via Melchiorre Gioia, 66, 20125 Milano MI",
+      "province": "Milano",
+      "lat": 45.49020755529812,
+      "lng": 9.202122645513608,
+      "status": "Attivo",
+      "web": "https://volzero.it/",
+      "ig": "https://www.instagram.com/volo.zeroalcohol/"
+    },
+    {
+      "name": "Venti (Amaro Venti)",
+      "typology": "amaro",
+      "address": "Via Arno, 1, 22072 Cermenate CO",
+      "province": "Como",
+      "lat": 45.69698108457314,
+      "lng": 9.086496277247857,
+      "status": "Attivo",
+      "web": "https://amaroventi.com/",
+      "ig": "https://www.instagram.com/amaroventi/"
+    },
+    {
+      "name": "Amaro Liborio",
+      "typology": "amaro",
+      "address": "Piazzetta Umberto Giordano, 4, 20122 Milano MI",
+      "province": "Milano",
+      "lat": 45.46668031254172,
+      "lng": 9.198522372538584,
+      "status": "Attivo",
+      "web": "https://www.amaroliborio.it/",
+      "ig": "https://www.instagram.com/amaro_liborio/"
+    },
+    {
+      "name": "Botanica",
+      "typology": "aperitivo",
+      "address": "Torino",
+      "province": "Torino",
+      "lat": 45.07029186880928,
+      "lng": 7.677989896252588,
+      "status": "Attivo",
+      "web": "https://www.botanica-drink.com/",
+      "ig": "https://www.instagram.com/botanicadrink/"
+    },
+    {
+      "name": "Paesano",
+      "typology": "amaro",
+      "address": "Via Purgatorio, 73, 93015 Niscemi CL",
+      "province": "Caltanissetta",
+      "lat": 37.14786014792675,
+      "lng": 14.386292806719315,
+      "status": "Attivo",
+      "web": "https://paesanoauthentic.com/",
+      "ig": "https://www.instagram.com/paesano.sicily/"
+    },
+    {
+      "name": "Alternativa (Princess S.r.l.)",
+      "typology": "wine_dealcoholized",
+      "address": "Via Giuseppe di Vittorio, 65/2, 38015 Lavis TN",
+      "province": "Trento",
+      "lat": 46.13350177391061,
+      "lng": 11.088482761085132,
+      "status": "Attivo",
+      "web": "https://alternativazero.com/",
+      "ig": "https://www.instagram.com/princess_dealcolati0.0/"
+    },
+    {
+      "name": "Langhe Zero",
+      "typology": "wine_dealcoholized",
+      "address": "Borgata Simane, 11, 12064 La Morra CN",
+      "province": "Cuneo",
+      "lat": 44.650525661400366,
+      "lng": 7.925866988,
+      "status": "Attivo",
+      "web": "https://langhezero.com/",
+      "ig": ""
+    }
+  ]
+}

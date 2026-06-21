@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>No/Lo Italy - Suggest a Producer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Plus+Jakarta+Sans:wght@600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="theme-color" content="#fff5f5">
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍹</text></svg>">
+</head>
+<body>
+    <div class="page-container">
+        <div class="page-header">
+            <a href="index.html" class="back-btn">
+                <span class="material-icons">arrow_back</span>
+            </a>
+            <h1 id="pageTitle">Suggest a <span>No/Lo</span></h1>
+        </div>
+
+        <div class="page-card" id="introCard" style="background:var(--accent-yellow); border-color:var(--text-ink);">
+            <p id="introText" style="margin:0; font-weight:600;">🚀 Help us grow! Suggest a producer that deserves to be on the map.</p>
+        </div>
+
+        <div class="page-card">
+            <form onsubmit="submitSuggestion(event)">
+
+                <div class="form-group" id="correzioneField" style="display:none;">
+                    <label class="form-label" id="correctionLabel">Select the producer to correct *</label>
+                    <select class="form-input" id="sugCorrezione"><option value="">Loading producers...</option></select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" id="nameLabel">Brand / Company Name *</label>
+                    <input type="text" class="form-input" id="sugName" required id="namePlaceholder" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" id="typeFieldLabel">Type *</label>
+                    <input type="text" class="form-input" id="sugType" required id="typePlaceholder" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" id="addressLabel">Address *</label>
+                    <input type="text" class="form-input" id="sugAddress" required id="addressPlaceholder" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" id="provinceLabel">Province *</label>
+                    <input type="text" class="form-input" id="sugProv" required id="provincePlaceholder" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" id="statusLabel">Status</label>
+                    <select class="form-input" id="sugStatus">
+                        <option value="Attivo" id="statusActive">Active</option>
+                        <option value="In pausa" id="statusPaused">Paused</option>
+                        <option value="Chiuso" id="statusClosed">Closed</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" id="webLabel">Website</label>
+                    <input type="url" class="form-input" id="sugWeb" id="webPlaceholder" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" id="igLabel">Instagram</label>
+                    <input type="url" class="form-input" id="sugIg" id="igPlaceholder" />
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="material-icons">send</span> Send Suggestion
+                </button>
+            </form>
+        </div>
+
+        <p style="font-size:0.75rem; color:var(--text-dim); text-align:center;" id="requiredNote">Fields marked with * are required.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

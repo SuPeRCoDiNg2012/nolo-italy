@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>No/Lo Italy - Report a Bug</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Plus+Jakarta+Sans:wght@600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="theme-color" content="#fff5f5">
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍹</text></svg>">
+</head>
+<body>
+    <div class="page-container">
+        <div class="page-header">
+            <a href="index.html" class="back-btn">
+                <span class="material-icons">arrow_back</span>
+            </a>
+            <h1 id="pageTitle">Report a <span>Bug</span></h1>
+        </div>
+
+        <div class="page-card" style="background:var(--accent-yellow); border-color:var(--text-ink);">
+            <p style="margin:0; font-weight:600;" id="introText">🐛 Help us improve! Report any issue you encountered.</p>
+        </div>
+
+        <div class="page-card">
+            <form onsubmit="submitBugReport(event)">
+                <div class="form-group">
+                    <label class="form-label" id="typeLabel">Type of issue *</label>
+                    <select class="form-input" id="bugType" required>
+                        <option value="" id="selectOption">Select...</option>
+                        <option value="technical" id="typeTechnical">Technical issue (e.g. map not loading, app crashes)</option>
+                        <option value="data" id="typeData">Data error (e.g. wrong address, phone, website)</option>
+                        <option value="ui" id="typeUi">UI/UX problem (e.g. design issue, confusing interface)</option>
+                        <option value="suggestion" id="typeSuggestion">Improvement suggestion</option>
+                        <option value="other" id="typeOther">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" id="producerLabel">Related producer (optional)</label>
+                    <input type="text" class="form-input" id="bugProducer" id="producerPlaceholder" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" id="descLabel">Description *</label>
+                    <textarea class="form-input" id="bugDescription" rows="5" required id="descPlaceholder"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" id="deviceLabel">Device / Browser (optional)</label>
+                    <input type="text" class="form-input" id="bugDevice" id="devicePlaceholder" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" id="emailLabel">Your email (optional, for follow-up)</label>
+                    <input type="email" class="form-input" id="bugEmail" id="emailPlaceholder" />
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="material-icons">bug_report</span> Submit Report
+                </button>
+            </form>
+        </div>
+
+        <p style="font-size:0.75rem; color:var(--text-dim); text-align:center;" id="requiredNote">Fields marked with * are required.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

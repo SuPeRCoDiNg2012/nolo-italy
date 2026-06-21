@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>No/Lo Italy</title>
+
+    <!-- Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.Default.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Plus+Jakarta+Sans:wght@600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <meta name="theme-color" content="#fff5f5">
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍹</text></svg>">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    
+
+    <!-- ===== TOAST ===== -->
+    <div id="toast" class="toast"></div>
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loading-screen">
+        <div class="loading-box">
+            <span class="material-icons" style="font-size:48px; color:var(--accent-coral);">local_drink</span>
+            <div class="loading-title">No/<span>Lo</span> Italy</div>
+            <div class="progress-container">
+                <div id="loading-bar" class="progress-bar"></div>
+            </div>
+            <div class="loading-text">Loading producers...</div>
+        </div>
+    </div>
+
+    <!-- ===== WELCOME POPUP ===== -->
+<div id="welcomePopup" class="welcome-popup hidden">
+    <div class="welcome-popup-content">
+        <button class="welcome-close-btn" onclick="closeWelcomePopup()" aria-label="Close">
+            <span class="material-icons">close</span>
+        </button>
+
+        <div class="welcome-popup-logo">
+            <span class="material-icons" style="font-size:48px; color:var(--accent-coral);">local_drink</span>
+        </div>
+
+        <h2 style="text-align:center; margin:0 0 4px; font-size:1.5rem;">
+            No/Lo Italy is <span style="color:var(--accent-coral);">free</span>.
+        </h2>
+
+        <p style="text-align:center; font-size:1rem; font-weight:500; margin:4px 0 12px; color:var(--text-dim);">
+            Like WinRAR, but with less zip and more kombucha.
+        </p>
+
+        <div style="background:var(--bg-paper); border:2px solid var(--text-ink); border-radius:12px; padding:10px 14px; margin:8px 0;">
+            <p style="margin:0; font-size:0.9rem; line-height:1.4; color:var(--text-ink);">
+                <strong>🗺️ Italian No/Lo map</strong><br />
+                Producers of non-alcoholic, low-alcohol & fermented drinks.
+            </p>
+        </div>
+
+        <div style="background:var(--bg-paper); border:2px solid var(--text-ink); border-radius:12px; padding:10px 14px; margin:8px 0;">
+            <p style="margin:0; font-size:0.9rem; line-height:1.4; color:var(--text-ink);">
+                <strong>🎯 Find & explore</strong><br />
+                Discover who's making great alcohol-free alternatives in Italy.
+            </p>
+        </div>
+
+        <div style="background:var(--bg-paper); border:2px solid var(--text-ink); border-radius:12px; padding:10px 14px; margin:8px 0 12px;">
+            <p style="margin:0; font-size:0.9rem; line-height:1.4; color:var(--text-ink);">
+                <strong>🛠️ Independent & handcrafted</strong><br />
+                Manually updated with passion, not algorithms.
+            </p>
+        </div>
+
+        <p style="text-align:center; font-size:0.95rem; margin:4px 0 2px;">
+            Use it freely.
+        </p>
+
+        <p style="text-align:center; font-size:0.9rem; color:var(--text-dim); margin:0 0 14px;">
+            If it's useful, <span style="color:var(--accent-coral); font-weight:700;">support with a contribution</span>.
+        </p>
+
+        <div class="welcome-popup-buttons">
+            <a href="supporta.html" class="btn-support">❤️ Support</a>
+            <button class="btn-continue" onclick="closeWelcomePopup()">➡️ Continue</button>
+        </div>
+
+        <p style="font-size:0.6rem; color:var(--text-dim); text-align:center; margin-top:10px; opacity:0.5;">
+            💡 Free • Independent • Community-driven
+        </p>
+    </div>
+</div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="app-header">
+        <div class="app-brand">
+            <span class="material-icons" style="font-size:28px; color:var(--accent-coral);">local_drink</span>
+            <div class="app-name">No/<span>Lo</span> Italy</div>
+        </div>
+        <button class="hamburger-btn" onclick="toggleMenu()" aria-label="Menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </header>
+
+    <!-- ===== SIDE MENU ===== -->
+    <div id="menuOverlay" class="menu-overlay" onclick="toggleMenu()"></div>
+    <nav id="menuDrawer" class="menu-drawer">
+        <div class="menu-header">
+            <div class="menu-brand">
+                <span class="material-icons" style="font-size:28px; color:var(--accent-coral);">local_drink</span>
+                <span class="menu-title">No/<span>Lo</span> Italy</span>
+            </div>
+            <button class="close-btn" onclick="toggleMenu()"><span class="material-icons">close</span></button>
+        </div>
+        <div class="menu-items">
+            <a href="supporta.html" class="menu-item" style="background:var(--text-ink); border-radius:14px; border:2px solid var(--text-ink); margin:8px 0;">
+                <span class="material-icons" style="color:var(--accent-coral);">favorite</span>
+                <span style="font-weight:800; color:var(--accent-yellow);">Support the App</span>
+                <span class="menu-arrow material-icons" style="color:var(--accent-yellow);">chevron_right</span>
+            </a>
+            <a href="suggerisci.html" class="menu-item">
+                <span class="material-icons">add_location_alt</span>
+                <span>Suggest a Brand</span>
+                <span class="menu-arrow material-icons">chevron_right</span>
+            </a>
+            <a href="chisiamo.html" class="menu-item">
+                <span class="material-icons">info</span>
+                <span>About Us</span>
+                <span class="menu-arrow material-icons">chevron_right</span>
+            </a>
+            <a href="reportbug.html" class="menu-item">
+                <span class="material-icons">bug_report</span>
+                <span>Report a Bug</span>
+                <span class="menu-arrow material-icons">chevron_right</span>
+            </a>
+            <a href="termini.html" class="menu-item" >
+                <span class="material-icons">gavel</span>
+                <span>Terms of Service</span>
+                <span class="menu-arrow material-icons">chevron_right</span>
+            </a>
+            <a href="privacy.html" class="menu-item">
+                <span class="material-icons">privacy_tip</span>
+                <span>Privacy Policy</span>
+                <span class="menu-arrow material-icons">chevron_right</span>
+            </a>
+        </div>
+        <!-- Nel menu-items -->
+
+            
+        <div class="menu-footer">
+            <span class="menu-version">v1.0</span>
+        </div>
+    </nav>
+
+    <!-- ===== SEARCH BAR ===== -->
+    <div class="search-wrapper">
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search brand, type..." oninput="onSearchInput()" autocomplete="off" />
+            <div id="autocomplete-list" class="autocomplete-items"></div>
+            <button class="action-icon-btn" id="toggleFiltersBtn" onclick="toggleFilterDrawer()">
+                <span class="material-icons">tune</span>
+            </button>
+        </div>
+
+        <!-- Province Filters -->
+        <div class="filter-drawer" id="filterDrawer">
+            <div class="drawer-title">Filter by Area / Province</div>
+            <div class="chips-scroll-wrapper">
+                <div class="chips-scroll" id="provinceChipsContainer"></div>
+            </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="chips-scroll-wrapper">
+            <div class="chips-scroll" id="categoryChipsContainer"></div>
+        </div>
+    </div>
+
+    <!-- ===== MAP CONTROLS ===== -->
+    <div class="map-controls">
+        <button class="control-btn" id="locateBtn" onclick="locateUser()" title="Find my location">
+            <span class="material-icons" style="font-size:26px;">my_location</span>
+        </button>
+    </div>
+
+    <!-- ===== MAP ===== -->
+    <div id="map"></div>
+
+    <!-- ===== DETAILS BOTTOM SHEET ===== -->
+    <div class="bottom-sheet" id="bottomSheet">
+        <div class="sheet-handle-zone" id="handleDetails"><div class="sheet-handle"></div></div>
+        <div class="bottom-sheet-scrollable">
+            <div class="sheet-header">
+                <div class="badges-container">
+                    <span class="sheet-tag"><span class="material-icons" id="placeTagIcon">wine_bar</span> <span id="placeTagText">-</span></span>
+                    <span class="sheet-tag status-tag" id="statusTagText">-</span>
+                    <span class="sheet-tag" id="newBadge" style="display:none; background:var(--accent-coral); color:white;">🆕 New</span>
+                </div>
+                <div style="display:flex; gap:6px;">
+                    <button class="close-btn" onclick="openErrorReport()" title="Report an error" style="background:#fee2e2; border-color:#991b1b; color:#991b1b;">
+                        <span class="material-icons" style="font-size:18px;">warning</span>
+                    </button>
+                    <button class="close-btn" onclick="closeSheet()"><span class="material-icons" style="font-size:18px;">close</span></button>
+                </div>
+            </div>
+            <h2 class="sheet-title" id="placeTitle">-</h2>
+            <p class="sheet-desc" id="placeDesc">-</p>
+            <div class="sheet-links">
+                <a href="#" id="linkWeb" target="_blank" class="link-item"><span class="material-icons">language</span> Website</a>
+                <a href="#" id="linkIg" target="_blank" class="link-item"><span class="material-icons">photo_camera</span> Instagram</a>
+                <a href="#" id="linkMaps" target="_blank" class="link-item full-width">
+                    <span><span class="material-icons">map</span> Open in Google Maps</span>
+                    <span class="material-icons">open_in_new</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ERROR REPORT POPUP ===== -->
+    <div id="errorOverlay" class="error-overlay hidden" onclick="closeErrorOverlayOutside(event)">
+        <div class="error-box" onclick="event.stopPropagation();">
+            <div class="error-header">
+                <span>⚠️ Report an error</span>
+                <button class="close-btn" onclick="closeErrorReport()"><span class="material-icons">close</span></button>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-dim); margin-bottom:12px;">
+                You are reporting an error for <strong id="errorPlaceName">-</strong>
+            </p>
+            <div class="form-group">
+                <label class="form-label">What is wrong? *</label>
+                <textarea class="form-input" id="errorMessage" rows="4" placeholder="E.g. address is wrong, website is broken..." style="resize:vertical; font-family:inherit;"></textarea>
+            </div>
+            <button class="submit-btn" id="errorSubmitBtn" onclick="submitErrorReport()" style="background:#dc2626;">
+                <span class="material-icons">send</span> Send report
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== JS LIBRARIES ===== -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+    <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet/leaflet-maplibre-gl.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.0/dist/leaflet.markercluster.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
