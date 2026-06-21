@@ -792,6 +792,13 @@ if (document.getElementById('sugTypeSelect')) {
         const corrField = document.getElementById('correzioneField');
         if (corrField) corrField.style.display = 'none';
         
+        // --- AGGANCIO DEL FORM DI SUGGERIMENTO ---
+        // Trova il form o il pulsante di invio e gli assegna la funzione
+        const formSuggerimento = document.getElementById('submitBtn')?.form || document.getElementById('submitBtn');
+        if (formSuggerimento) {
+            formSuggerimento.addEventListener('submit', submitSuggestion);
+        }
+        
         const selectProduttore = document.getElementById('sugProduttoreSelect');
         if (selectProduttore) {
             try {
@@ -823,6 +830,9 @@ if (document.getElementById('sugTypeSelect')) {
 }
 
 // ================================================================
-// MAP - START
+// MAP - START (Solo se siamo nella pagina della mappa)
 // ================================================================
-loadDatabase();
+// Questo controllo evita che il codice vada in crash nelle pagine secondarie
+if (document.getElementById('map')) {
+    loadDatabase();
+}

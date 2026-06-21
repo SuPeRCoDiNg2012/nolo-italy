@@ -77,31 +77,6 @@ html, body {
     cursor: pointer;
 }
 
-/* Effetto onda radar pulsante attorno al cerchietto */
-.user-location-marker::after {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    width: 18px;
-    height: 18px;
-    border: 3px solid #3b82f6;
-    border-radius: 50%;
-    animation: user-pulsate 2s infinite ease-out;
-    opacity: 0;
-}
-
-@keyframes user-pulsate {
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(2.8);
-        opacity: 0;
-    }
-}
-
 /* ============================================================
    ANIMAZIONI
    ============================================================ */
@@ -608,19 +583,9 @@ body.menu-open {
 body.sheet-open .map-controls {
     transform: translateY(-285px);
 }
-.control-btn {
-    background: var(--accent-red);
-    border: 2.5px solid var(--border-ink);
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: white;
+.control-btn.active-location {
+    /* Rimosso l'effetto pulse-glow */
     box-shadow: 3px 3px 0px var(--border-ink);
-    border-radius: 16px;
-    transition: all 0.15s ease;
 }
 .control-btn:active {
     transform: translate(3px, 3px);
