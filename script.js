@@ -652,66 +652,65 @@ function populateCorrezioneSelect() {
     select.innerHTML = html;
 }
 
+// ================================================================
+// FUNZIONE DI INVIO SUGGERIMENTO (MAILTO CORRETTO)
+// ================================================================
 function submitSuggestion(e) {
-    e.preventDefault();
+    e.preventDefault(); // Blocca il ricaricamento della pagina
 
-    const tipo = document.getElementById('sugTypeSelect').value;
-    const nomeCorretto = document.getElementById('sugName').value.trim();
-    const tipologia = document.getElementById('sugType').value.trim();
-    const indirizzo = document.getElementById('sugAddress').value.trim();
-    const provincia = document.getElementById('sugProv').value.trim();
-    const stato = document.getElementById('sugStatus').value;
-    const web = document.getElementById('sugWeb').value.trim() || 'Not specified';
-    const ig = document.getElementById('sugIg').value.trim() || 'Not specified';
+    // 1. Recupera il tipo di suggerimento (nuovo o correzione)
+    const type = document.getElementById('sugTypeSelect')?.value || 'nuovo';
+    
+    let nome = "";
+    let indirizzo = "";
+    let categoria = "";
+    let provincia = document.getElementById('sugProv')?.value.trim() || "";
+    let status = document.getElementById('sugStatus')?.value || "";
+    let web = document.getElementById('sugWeb')?.value.trim() || "";
+    let ig = document.getElementById('sugIg')?.value.trim() || "";
 
-    let nomeDaCorreggere = '';
-    if (tipo === 'correzione') {
-        const select = document.getElementById('sugCorrezione');
-        nomeDaCorreggere = select.value;
-        if (!nomeDaCorreggere) {
-            alert('Please select a producer from the list to correct.');
-            return;
-        }
+    if (type === 'correzione') {
+        // Se è una correzione, prendiamo il nome del produttore selezionato dalla select
+        nome = document.getElementById('sugProduttoreSelect')?.value || "";
+        indirizzo = "Segnalazione di correzione";
+        categoria = "Modifica dati";
+    } else {
+        // Se è un nuovo inserimento, prendiamo i campi compilati a mano
+        nome = document.getElementById('sugName')?.value.trim() || "";
+        indirizzo = document.getElementById('sugAddress')?.value.trim() || "";
+        categoria = document.getElementById('sugCat')?.value || "";
     }
 
-    if (!nomeCorretto || !tipologia || !indirizzo || !provincia) {
-        alert('Please fill in all required fields (*).');
+    // 2. Controllo campi obbligatori
+    if (!nome || (type === 'nuovo' && (!indirizzo || !categoria))) {
+        alert("Per favore, compila tutti i campi obbligatori contrassegnati con *");
         return;
     }
 
-    const email = 'info@noloitaly.com';
-    let subject, body;
-
-    if (tipo === 'nuovo') {
-        subject = encodeURIComponent(`New No/Lo suggestion: ${nomeCorretto}`);
-        body = encodeURIComponent(
-            `Hello Riccardo,\n\n` +
-            `A NEW producer has been suggested for the database:\n\n` +
-            `📌 Name: ${nomeCorretto}\n` +
-            `🏷️ Type: ${tipologia}\n` +
-            `📍 Address: ${indirizzo}\n` +
-            `🗺️ Province: ${provincia}\n` +
-            `📊 Status: ${stato}\n` +
-            `🌐 Website: ${web}\n` +
-            `📸 Instagram: ${ig}\n\n` +
-            `--\nSent via No/Lo Italy App`
-        );
-    } else {
-        subject = encodeURIComponent(`Correction for: ${nomeCorretto}`);
-        body = encodeURIComponent(
-            `Hello Riccardo,\n\n` +
-            `A CORRECTION has been submitted for an existing producer:\n\n` +
-            `✏️ Producer to correct: ${nomeDaCorreggere}\n\n` +
-            `📌 Corrected Name: ${nomeCorretto}\n` +
-            `🏷️ Type: ${tipologia}\n` +
-            `📍 Address: ${indirizzo}\n` +
-            `🗺️ Province: ${provincia}\n` +
-            `📊 Status: ${stato}\n` +
-            `🌐 Website: ${web}\n` +
-            `📸 Instagram: ${ig}\n\n` +
-            `--\nSent via No/Lo Italy App`
-        );
+    // 3. Configurazione email destinatario
+    const emailDestinatario = "supercoding2012@gmail.com";
+    const oggettoEmail = encodeURIComponent(`[NOLO-SUGGEST] Tipo: ${type.toUpperCase()} - ${nome}`);
+    
+    // 4. Costruzione del testo dell'email ben formattato
+    let corpoTesto = `Ecco una nuova segnalazione inviata dal sito NOLO Italy:\n\n`;
+    corpoTesto += `📌 Tipo Segnalazione: ${type.toUpperCase()}\n`;
+    corpoTesto += `🏷️ Nome/Produttore: ${nome}\n`;
+    
+    if (type === 'nuovo') {
+        corpoTesto += `📍 Indirizzo: ${indirizzo}\n`;
+        corpoTesto += `🗂️ Categoria: ${categoria}\n`;
+        corpoTesto += `🏙️ Provincia: ${provincia}\n`;
+        corpoTesto += `⚙️ Status: ${status}\n`;
     }
+    
+    if (web) corpoTesto += `🌐 Sito Web: ${web}\n`;
+    if (ig) corpoTesto += `📸 Instagram: ${ig}\n`;
+
+    const corpoEmail = encodeURIComponent(corpoTesto);
+
+    // 5. Apertura del client mail
+    window.location.href = `mailto:${emailDestinatario}?subject=${oggettoEmail}&body=${corpoEmail}`;
+
 
     window.open(`mailto:${email}?subject=${subject}&body=${body}`, '_blank');
     e.target.reset();
@@ -792,13 +791,6 @@ if (document.getElementById('sugTypeSelect')) {
         const corrField = document.getElementById('correzioneField');
         if (corrField) corrField.style.display = 'none';
         
-        // --- AGGANCIO DEL FORM DI SUGGERIMENTO ---
-        // Trova il form o il pulsante di invio e gli assegna la funzione
-        const formSuggerimento = document.getElementById('submitBtn')?.form || document.getElementById('submitBtn');
-        if (formSuggerimento) {
-            formSuggerimento.addEventListener('submit', submitSuggestion);
-        }
-        
         const selectProduttore = document.getElementById('sugProduttoreSelect');
         if (selectProduttore) {
             try {
@@ -830,9 +822,6 @@ if (document.getElementById('sugTypeSelect')) {
 }
 
 // ================================================================
-// MAP - START (Solo se siamo nella pagina della mappa)
+// MAP - START
 // ================================================================
-// Questo controllo evita che il codice vada in crash nelle pagine secondarie
-if (document.getElementById('map')) {
-    loadDatabase();
-}
+loadDatabase();
