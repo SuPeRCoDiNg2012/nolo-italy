@@ -653,45 +653,64 @@ function populateCorrezioneSelect() {
 }
 
 // ================================================================
-// FUNZIONE DI INVIO SUGGERIMENTO (MAILTO CORRETTO)
+// FUNZIONE DI INVIO SUGGERIMENTO (SENZA ALERT)
 // ================================================================
 function submitSuggestion(e) {
     e.preventDefault(); // Blocca il ricaricamento della pagina
 
-    // 1. Recupera il tipo di suggerimento (nuovo o correzione)
     const type = document.getElementById('sugTypeSelect')?.value || 'nuovo';
     
-    let nome = "";
-    let indirizzo = "";
-    let categoria = "";
+    let nomeElement = document.getElementById('sugName');
+    let indirizzoElement = document.getElementById('sugAddress');
+    let categoriaElement = document.getElementById('sugCat');
+    let produttoreElement = document.getElementById('sugProduttoreSelect');
+
+    // Rimuove la colorazione rossa da tutti i campi prima del controllo
+    [nomeElement, indirizzoElement, categoriaElement, produttoreElement].forEach(el => {
+        if(el) el.style.borderColor = "";
+    });
+
+    let errore = false;
+
+    // Controllo campi obbligatori in base al tipo
+    if (type === 'correzione') {
+        if (!produttoreElement?.value) {
+            if(produttoreElement) produttoreElement.style.borderColor = "#dc2626"; // Rosso
+            errore = true;
+        }
+    } else {
+        if (!nomeElement?.value.trim()) {
+            if(nomeElement) nomeElement.style.borderColor = "#dc2626";
+            errore = true;
+        }
+        if (!indirizzoElement?.value.trim()) {
+            if(indirizzoElement) indirizzoElement.style.borderColor = "#dc2626";
+            errore = true;
+        }
+        if (!categoriaElement?.value) {
+            if(categoriaElement) categoriaElement.style.borderColor = "#dc2626";
+            errore = true;
+        }
+    }
+
+    // Se c'è un errore, ci fermiamo qui SENZA mostrare l'alert
+    if (errore) {
+        return;
+    }
+
+    // Se è tutto ok, procediamo a raccogliere i dati per l'email
+    let nome = type === 'correzione' ? produttoreElement.value : nomeElement.value.trim();
+    let indirizzo = type === 'correzione' ? "Segnalazione di correzione" : indirizzoElement.value.trim();
+    let categoria = type === 'correzione' ? "Modifica dati" : categoriaElement.value;
+    
     let provincia = document.getElementById('sugProv')?.value.trim() || "";
     let status = document.getElementById('sugStatus')?.value || "";
     let web = document.getElementById('sugWeb')?.value.trim() || "";
     let ig = document.getElementById('sugIg')?.value.trim() || "";
 
-    if (type === 'correzione') {
-        // Se è una correzione, prendiamo il nome del produttore selezionato dalla select
-        nome = document.getElementById('sugProduttoreSelect')?.value || "";
-        indirizzo = "Segnalazione di correzione";
-        categoria = "Modifica dati";
-    } else {
-        // Se è un nuovo inserimento, prendiamo i campi compilati a mano
-        nome = document.getElementById('sugName')?.value.trim() || "";
-        indirizzo = document.getElementById('sugAddress')?.value.trim() || "";
-        categoria = document.getElementById('sugCat')?.value || "";
-    }
-
-    // 2. Controllo campi obbligatori
-    if (!nome || (type === 'nuovo' && (!indirizzo || !categoria))) {
-        alert("Per favore, compila tutti i campi obbligatori contrassegnati con *");
-        return;
-    }
-
-    // 3. Configurazione email destinatario
     const emailDestinatario = "supercoding2012@gmail.com";
     const oggettoEmail = encodeURIComponent(`[NOLO-SUGGEST] Tipo: ${type.toUpperCase()} - ${nome}`);
     
-    // 4. Costruzione del testo dell'email ben formattato
     let corpoTesto = `Ecco una nuova segnalazione inviata dal sito NOLO Italy:\n\n`;
     corpoTesto += `📌 Tipo Segnalazione: ${type.toUpperCase()}\n`;
     corpoTesto += `🏷️ Nome/Produttore: ${nome}\n`;
@@ -708,25 +727,8 @@ function submitSuggestion(e) {
 
     const corpoEmail = encodeURIComponent(corpoTesto);
 
-    // 5. Apertura del client mail
+    // Apre l'app delle email
     window.location.href = `mailto:${emailDestinatario}?subject=${oggettoEmail}&body=${corpoEmail}`;
-
-
-    window.open(`mailto:${email}?subject=${subject}&body=${body}`, '_blank');
-    e.target.reset();
-
-    document.getElementById('sugTypeSelect').value = 'nuovo';
-    document.getElementById('correzioneField').style.display = 'none';
-    document.getElementById('sugName').placeholder = 'E.g. Eko lab';
-    document.getElementById('introText').textContent = '🚀 Help us grow! Suggest a producer that deserves to be on the map.';
-    document.getElementById('introCard').style.background = 'var(--accent-yellow)';
-    document.getElementById('introCard').style.color = 'var(--text-ink)';
-
-    alert(
-        '🙏 Thank you for your suggestion!\n\n' +
-        'We have received your request and will review it as soon as possible.\n\n' +
-        'The No/Lo Italy Team'
-    );
 }
 
 // ================================================================
